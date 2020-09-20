@@ -10,7 +10,7 @@ const auth = require("../../middleware/auth");
 
 //@route GET api/auth
 // test routes
-//access public
+//access private
 
 router.get("/", auth, async (req, res) => {
   try {
@@ -23,7 +23,7 @@ router.get("/", auth, async (req, res) => {
 });
 
 //@route    POST api/auth
-// test     authenticate user and get token
+// test     authenticate user and get token (login)
 //access    public
 
 router.post(

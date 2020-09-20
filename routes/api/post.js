@@ -36,7 +36,7 @@ router.post(
 );
 
 //@route GET api / post
-// test get one post
+// test get posts
 //access private
 
 router.get("/", auth, async (req, res) => {
@@ -74,7 +74,7 @@ router.get("/:id", auth, async (req, res) => {
 
 router.delete("/:id", auth, async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findByIdAndDeleter(req.params.id);
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
@@ -122,8 +122,9 @@ router.put("/unlikes/:id", auth, async (req, res) => {
     const post = await Post.findById(req.params.id);
     //check if post is not already liked
     if (
-      post.likes.filter((like) => like.user.toString() === req.user.id)
-        .length === 0
+      (post.likes.filter(
+        (like) => like.user.toString() === req.user.id
+      ).length = 0)
     ) {
       //post is not  liked
       return res.status(400).json({ message: "Post has not been liked" });
