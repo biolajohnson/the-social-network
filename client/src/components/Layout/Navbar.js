@@ -12,6 +12,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logoutUser }) => {
           Logout
         </a>
       </li>
+      <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
     </ul>
   );
   const guestLinks = (

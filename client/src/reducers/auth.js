@@ -6,6 +6,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  CLEAR_PROFILE,
 } from "../actions/types";
 
 const initialState = {
@@ -43,6 +44,13 @@ export default (state = initialState, { type, payload }) => {
         isAuthenticated: true,
         loading: false,
         user: payload,
+      };
+    case CLEAR_PROFILE:
+      return {
+        ...state,
+        loading: false,
+        profile: null,
+        repos: [],
       };
     default:
       return state;
