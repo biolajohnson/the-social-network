@@ -70,7 +70,9 @@ router.post(
     if (githubusername) profileFields.githubusername = githubusername;
     if (status) profileFields.status = status;
     if (skills) {
-      profileFields.skills = skills.split(",").map((skill) => skill.trim());
+      profileFields.skills = skills.includes(",")
+        ? skills.split(",").map((skill) => skill.trim())
+        : (profileFields.skills = skills);
     }
     //build social fields
 
