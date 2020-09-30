@@ -63,7 +63,7 @@ const EditProfile = ({
       facebook: loading || !profile.socials ? "" : profile.socials.facebook,
       linkedIn: loading || !profile.socials ? "" : profile.socials.linkedIn,
     });
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
 
   return (
     <Fragment>

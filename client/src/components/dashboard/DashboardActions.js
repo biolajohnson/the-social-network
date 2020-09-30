@@ -7,10 +7,10 @@ export const DashboardActions = () => {
       <Link to="/edit-profile" className="btn btn-light">
         Edit Profile
       </Link>
-      <Link to="add-experience.html" className="btn btn-light">
+      <Link to="/add-experience" className="btn btn-light">
         Add Experience
       </Link>
-      <Link to="add-education.html" className="btn btn-light">
+      <Link to="/add-education" className="btn btn-light">
         Add Education
       </Link>
     </div>
