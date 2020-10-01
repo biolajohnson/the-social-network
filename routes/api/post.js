@@ -74,7 +74,7 @@ router.get("/:id", auth, async (req, res) => {
 
 router.delete("/:id", auth, async (req, res) => {
   try {
-    const post = await Post.findByIdAndDeleter(req.params.id);
+    const post = await Post.findByIdAndDelete(req.params.id);
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
@@ -107,8 +107,9 @@ router.put("/likes/:id", auth, async (req, res) => {
     }
     post.likes.unshift({ user: req.user.id });
     await post.save();
-    res.send(post);
+    return res.json(post.likes);
   } catch (e) {
+    console.log("its not working");
     console.log(e.message);
     res.status(500).send("Server Error");
   }
